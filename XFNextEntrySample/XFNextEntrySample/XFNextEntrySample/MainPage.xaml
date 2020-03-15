@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:XFNextEntrySample.Controls"
+             mc:Ignorable="d"
+             x:Class="XFNextEntrySample.MainPage"
+             Padding="16"
+             Visual="Material">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="controls:NextEntry">
+                <Setter Property="ReturnType"
+                        Value="Next" />
+                <Setter Property="Keyboard"
+                        Value="Text" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <controls:NextEntry x:Name="FirstEntry"
+                                Placeholder="First"
+                                NextView="{x:Reference SecondEntry}" />
+            <controls:NextEntry x:Name="SecondEntry"
+                                Placeholder="Second"
+                                NextView="{x:Reference ThirdEntry}" />
+            <controls:NextEntry x:Name="ThirdEntry"
+                                Placeholder="Third"
+                                NextView="{x:Reference FirstEntry}" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
